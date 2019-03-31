@@ -24,7 +24,7 @@ const weekdays = new Array(7); //Create an array to use for rendering day index
   weekdays[6]="Saturday";
 const dayNow = weekdays[today];
 
-//const timeNow = start.toTimeString("hh/mm");
+const timeNow = start.toTimeString("hh/mm");
 
 console.log(dayNow);
 console.log(timeNow);

@@ -34,6 +34,12 @@ fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
   const meetings = data; //A nice name for what the data is
+
+  const dayFilter = meetings.filter( meetings => {
+    return meetings.day >= today;
+  });
+  console.log(dayFilter.slice(1,10));
+
   let weekdayToday = weekdays[today]; //Parse the day number to a string
 
   return meetings.map(function(meeting) { //The data is an array so we can map it

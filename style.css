@@ -1,0 +1,13 @@
+h1 {
+  margin-left: 40px;
+}
+h2 {
+  margin: .7em auto .5em auto;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+p, a {
+  margin: .33em auto;
+}

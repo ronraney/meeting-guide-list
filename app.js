@@ -17,16 +17,6 @@ const ul = document.getElementById('meetings');
 const url = 'http://aa-ksdist23.org/wp/wp-admin/admin-ajax.php?action=meetings';
 const start = new Date();
 
-//set some event listeners
-numBox.addEventListener('change', e => {
-  e.preventDefault();
-  buildMeetings();
-});
-
-document.getElementById('go').addEventListener('click', e => {
-  e.preventDefault();
-  buildMeetings();
-});
 
 const today = start.getDay();
 const weekdays = new Array(7); //Create an array to use for rendering day index
@@ -75,6 +65,7 @@ function buildMeetings() {
         url = createNode('a');
 
     url.href = meeting.url;    //Assign the href to new element using JSON url
+    url.target = "_top";
     //I love template literals. Just fucking love 'em
     name.innerHTML = `${meeting.name}`;  //Interpolation for each element
     day.innerHTML = `${meetingDay}`;
@@ -93,6 +84,18 @@ function buildMeetings() {
     append(ul, li);
   })
 };
+
+//set some event listeners
+numBox.addEventListener('change', e => {
+  e.preventDefault();
+  buildMeetings();
+});
+
+document.getElementById('go').addEventListener('click', e => {
+  e.preventDefault();
+  buildMeetings();
+});
+
 //This is the magic
 function filterByNow(){
   //This piece of code handles the stringiness of the JSON data and allows us to
